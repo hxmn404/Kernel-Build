@@ -135,9 +135,9 @@ jobs:
           mkdir -p kernel_workspace && cd kernel_workspace
           
           echo "Cloning source code repository..."
-          aria2c -s16 -x16 -k1M "https://github.com/TukangHantam/kernel-android15-6.6/archive/refs/heads/test1.zip" -o common.zip && 
+          aria2c -s16 -x16 -k1M "https://github.com/TukangHantam/kernel-android15-6.6/archive/refs/heads/${{ inputs.kernel_version}}.zip" -o common.zip && 
           unzip -q common.zip && 
-          mv "kernel-android15-6.6-test1" common &&
+          mv "kernel-android15-6.6-${{ inputs.kernel_version}}" common &&
           rm -rf common.zip &
           KERNEL_PID=$!
           
