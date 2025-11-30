@@ -407,7 +407,7 @@ jobs:
           
           # Set Kernel Name
           sed -i 's/${scm_version}//' ./common/scripts/setlocalversion
-          echo "TIME_BUILD=$(date '+%a %b %d %H:%M:%S %Z %Y')" >> $GITHUB_ENV
+          # echo "TIME_BUILD=$(date '+%a %b %d %H:%M:%S %Z %Y')" >> $GITHUB_ENV
           if [ "${{ inputs.kernel_version }}" = "6.6.30" ]; then
             sudo sed -i 's/-4k/-android15-8-g94c1a24cabd5-ab12293704-4k/g' ./common/arch/arm64/configs/gki_defconfig
           elif [ "${{ inputs.kernel_version }}" = "6.6.56" ]; then
@@ -425,9 +425,9 @@ jobs:
           set -e
           set -x
 
-          export KBUILD_BUILD_USER="xyz"
-          export KBUILD_BUILD_HOST="hxmn404"
-          export KBUILD_BUILD_TIMESTAMP="${{ env.TIME_BUILD }}"
+          # export KBUILD_BUILD_USER="xyz"
+          # export KBUILD_BUILD_HOST="hxmn404"
+          # export KBUILD_BUILD_TIMESTAMP="${{ env.TIME_BUILD }}"
           export PATH="/usr/lib/ccache:$PATH"
           export PATH="$GITHUB_WORKSPACE/kernel_workspace/clang-${{ env.CLANGVER }}/bin:$PATH"
           export PATH="$GITHUB_WORKSPACE/kernel_workspace/build-tools/bin:$PATH"
