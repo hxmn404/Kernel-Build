@@ -370,7 +370,7 @@ jobs:
           fi
 
           # Zram Configuration
-          if [ "${{ inputs.enable_zram }}" == "lz4kd" || "${{ inputs.enable_zram }}" == "all" ]; then
+          if [ "${{ inputs.enable_zram }}" = "lz4kd" || "${{ inputs.enable_zram }}" = "all" ]; then
             set_config CONFIG_CRYPTO_LZ4HC y
             set_config CONFIG_CRYPTO_LZ4K y
             set_config CONFIG_CRYPTO_LZ4KD y
